@@ -6,6 +6,7 @@ import Gig from "./components/Gig";
 import guitarLogo from "./assets/guitar.png";
 import ziggy from "./assets/ziggy-stardust.jpg";
 import jimiHendrix from "./assets/jimi-hendrix.jpg";
+import theWeeknd from "./assets/the-weeknd.jpg";
 import "./App.css";
 
 const jimiProps = {
@@ -14,6 +15,14 @@ const jimiProps = {
   description: "Live from Monterey Pop festival - it was lit!",
   dateTime: "18 June 1967 - 3pm",
   location: "Monterery Country Fairgrounds, Monterey, California",
+};
+
+const theWeekndProps = {
+  name: "The Weeknd",
+  image: theWeeknd,
+  description: "Celebrate the end of summer with After Hours til Dawn!",
+  dateTime: "18 August 2023 - 6pm",
+  location: "Wembley Stadium, South Way, Wembley, HA9 0WS",
 };
 
 function App() {
@@ -29,6 +38,7 @@ function App() {
         location="Hammersmith Odeon, London"
       />
       <Gig {...jimiProps} />
+      <Gig {...theWeekndProps} />
     </>
   );
 }

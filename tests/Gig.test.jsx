@@ -1,6 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import Gig from "../src/components/Gig";
 import jimiHendrix from "../src/assets/jimi-hendrix.jpg";
+import userEvent from "@testing-library/user-event";
 
 const jimiProps = {
   name: "Jimi Hendrix",
@@ -12,7 +13,6 @@ const jimiProps = {
 
 // describe - beforeEach - render
 // test - expect - assert
-
 describe("Gig component", () => {
   beforeEach(() => {
     render(<Gig {...jimiProps} />);
@@ -51,5 +51,18 @@ describe("Gig component", () => {
     expect(
       screen.getByText("Monterery Country Fairgrounds, Monterey, California")
     ).toBeInTheDocument();
+  });
+
+  test("favourite button toggles correctly", async () => {
+    const favButton = screen.getByRole("button");
+    expect(favButton).toHaveTextContent("Favourite");
+
+    await userEvent.click(favButton);
+    expect(favButton).toHaveTextContent("Unfavourite");
+    expect(screen.getByText("⭐️")).toBeInTheDocument();
+
+    await userEvent.click(favButton);
+    expect(favButton).toHaveTextContent("Favourite");
+    expect(screen.queryByText("⭐️")).not.toBeInTheDocument();
   });
 });
