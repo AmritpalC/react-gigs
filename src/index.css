@@ -3,8 +3,20 @@
   line-height: 1.5;
   font-weight: 400;
 
-  color: black;
+  color: #000000;
   background-color: #ffffff;
+
+  --teal: #bbdbd1;
+  --mint: #bdede0;
+  --lavender: #b6b8d6;
+  --indigo: #938dff;
+  --purple: #aa9dff;
+
+  --dark-teal: #1f271b;
+  --dark-mint: #171A21;
+  --dark-lavender: #4b2142;
+  --dark-indigo: #6230c9;
+  --dark-purple: #5120be;
 }
 
 body {
