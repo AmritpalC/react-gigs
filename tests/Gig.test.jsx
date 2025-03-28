@@ -1,4 +1,5 @@
 import { render, screen } from "@testing-library/react";
+import { useState } from "react";
 import Gig from "../src/components/Gig";
 import jimiHendrix from "../src/assets/jimi-hendrix.jpg";
 import userEvent from "@testing-library/user-event";
@@ -28,7 +29,6 @@ describe("Gig component", () => {
     const img = screen.getByRole("img", { name: "Picture of Jimi Hendrix" });
 
     expect(img).toBeInTheDocument();
-    // expect(img).toHaveAttribute("src", jimiHendrix);
     expect(img).toHaveAttribute(
       "src",
       expect.stringContaining("jimi-hendrix.jpg") // works regardless of full path
@@ -52,8 +52,20 @@ describe("Gig component", () => {
       screen.getByText("Monterery Country Fairgrounds, Monterey, California")
     ).toBeInTheDocument();
   });
+});
 
+// ? Test for Gig favourite functionality - by passing state to Gig component from Parent
+const GigFaveTestComponent = () => {
+  const [favourite, setFavourite] = useState(false);
+  const toggleFave = () => setFavourite((prev) => !prev);
+
+  return <Gig {...jimiProps} favourite={favourite} toggleFave={toggleFave} />;
+};
+
+describe("Gig componenet favourite functionality - uses state", () => {
   test("favourite button toggles correctly", async () => {
+    render(<GigFaveTestComponent />);
+
     const favButton = screen.getByRole("button");
     expect(favButton).toHaveTextContent("Favourite");
 

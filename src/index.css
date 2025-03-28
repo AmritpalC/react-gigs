@@ -33,5 +33,6 @@ h1 {
 }
 
 img {
-  max-width: 50vmin;
+  max-width: 60vmin;
+  min-width: 40vmin;
 }
