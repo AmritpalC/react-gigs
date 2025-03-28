@@ -54,11 +54,9 @@ const allGigs = [
     id: 6,
     name: "Bring Me The Horizon",
     image: bmth,
-    description:
-      "Catch the iconic metalcore band live at Knotfest as they perform their biggest hits!",
+    description: "Catch the iconic metalcore band live at Knotfest",
     dateTime: "25 October 2015 - 8pm",
-    location:
-      "San Manuel Amphitheater, 2575 Glen Helen Parkway, San Bernardino, California",
+    location: "San Manuel Amphitheater, San Bernardino, California",
   },
 ];
 

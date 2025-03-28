@@ -1,5 +1,3 @@
-import "../Gig.css";
-
 const Gig = (props) => {
   return (
     <div className="gig-container">
@@ -12,7 +10,7 @@ const Gig = (props) => {
       <h4 className="gig-description">{props.description}</h4>
       <p className="date-and-time">{props.dateTime}</p>
       <p className="location">{props.location}</p>
-      <button onClick={props.toggleFave}>
+      <button className="fave-button" onClick={props.toggleFave}>
         {props.favourite ? "Unfavourite" : "Favourite"}
       </button>
       {props.favourite && <h2>⭐️</h2>}

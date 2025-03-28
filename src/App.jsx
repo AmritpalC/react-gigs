@@ -1,16 +1,31 @@
+// Hooks
+import { useState, useEffect } from "react";
+
 // Components
-import Hello from "./components/Hello";
 import Gigs from "./components/Gigs";
+import Navbar from "./components/Navbar";
 
 // Assets
-import guitarLogo from "./assets/guitar.png";
 import "./App.css";
 
 function App() {
+  const [darkMode, setDarkMode] = useState(false);
+
+  useEffect(() => {
+    if (darkMode) {
+      document.body.classList.remove("dark");
+    } else {
+      document.body.classList.add("dark");
+    }
+  }, [darkMode]);
+
+  const toggleTheme = () => {
+    setDarkMode((theme) => !theme);
+  };
+
   return (
     <>
-      <Hello name="World" />
-      <img className="logo" src={guitarLogo} />
+      <Navbar darkMode={darkMode} toggleTheme={toggleTheme} />
       <Gigs />
     </>
   );
